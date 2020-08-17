@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://steamuserimages-a.akamaihd.net/ugc/437198425757436827/10C41588CD26151311C70A7B97139E3D73FC9A92/" type="image/x-icon">
+    <title>Party On</title>
+    <link rel="stylesheet" href="partyon.css">
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/map.js"></script>
+</head>
+<body class="rainbow">
+    
+    <header align="end" class="rainbow">
+        <div id="cabecalho">
+            <nav>
+                
+                    <a href="https://www.google.com/gmail/" target="_blank">E-mail</a>
+                    <a href="https://www.google.com/search?q=raves&sxsrf=ALeKk01VqgM8LL7pBb8rXEwbT7uJD7T9-A:1595868002422&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiU4JHL7-3qAhXhILkGHVoWBfwQ_AUoAXoECBwQAw&biw=1920&bih=947" target="_blank">Imagens</a>
+                    <button id="apps"><img width="20px" src="https://image.flaticon.com/icons/svg/3063/3063634.svg" alt="Apps"></button>
+                    <button id="feedbackbtn"><img width="20px" src="https://image.flaticon.com/icons/svg/3084/3084418.svg" alt="Feedback"></button>
+                    <a id="redessociais" href="https://www.facebook.com/otaviobarros.52" target="_blank"><button id="redessociais"><font color="white"><img width="20px"src="https://scontent.fvcp2-1.fna.fbcdn.net/v/t1.0-1/p200x200/110337381_4000589463316366_487990332661269035_n.jpg?_nc_cat=106&_nc_sid=7206a8&_nc_ohc=Mpww5iBf5hAAX_SRqln&_nc_ht=scontent.fvcp2-1.fna&_nc_tp=6&oh=6abf971a61d527460d4ff9c05b9e4f59&oe=5F46AF9B" alt="Facebook do CEO"></button></a>
+            </nav>
+        </div>
+    </header>
+
+    <main align="center" align="middle" class='rainbow'>
+        <section id="corpo">
+            <div id="imagemsite">
+               <figure> 
+                   <img id="imglogo" src="https://steamuserimages-a.akamaihd.net/ugc/437198425757436827/10C41588CD26151311C70A7B97139E3D73FC9A92/" alt="Imagem Logo do Site">
+               </figure>
+            </div>
+
+            <div id="buscabar">
+                <form><input id="campodebusca1" type="text" placeholder="O que Procura?">
+                <span class="campodebusca1" id="buscabotao1" type="submit" value="Buscar"><a href="pesquisa.html">Buscar</a></span></form>
+            </div>
+
+            <div id="buscabtn">
+                <button id="buscabotaoazar" type="submit"><a href="https://www.youtube.com/watch?v=r9zzJp-9uWo" target="_blank">Estou com Azar!</a></button>
+            </div>
+        </section>
+    </main>
+
+    <footer id="rodape" class="rainbow">
+        <section id="localizazao">
+             <div id="local" class="sobre"></div>
+             <a id="local1" class="sobre" align="left" href="geo.html" target="_blank">, Clique para sua localição</a>
+             <div class="sobre" id="brasil"><a href="brasil.html" target="_blank">Brasil</a></div>
+            </section>
+
+        <section id="rodape1">
+              <div id="sobre1">
+                <nav><br>
+                      <div id="endesquerda">
+                      <a href="">Publicidade</a>
+                      <a href="">Negocios</a>
+                      <a href="about.html" target="_blank">Sobre</a>
+                      <a id="diferentao" href="">Como Funciona</a>
+                      <div id="enddireita" class="sobreconfig"><a id="layout" onclick="mudar()">Configurações</a>                
+                </nav>
+
+              </div>
+        </section>
+
+    </footer>
+
+
+<script>
+    window.onload = function (){
+        document.getElementById('local').innerHTML = new Date().toLocaleString();
+    }
+</script>
+
+<script src="//maps.google.com/maps/api/js?key=_SUA_CHAVE_API_&sensor=false">
+    document.addEventListener('DOMContentLoaded', function(){
+
+var target = document.querySelector('#local1');
+
+navigator.geolocation.getCurrentPosition(function(position) {
+
+    var latitude   = position.coords.latitude;
+    var longitude  = position.coords.longitude;
+    var coordinate = new google.maps.LatLng(latitude, longitude);
+
+    var optionsMap = {
+                center : coordinate,
+                zoom: 19,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(target, optionsMap);
+
+    var configMarker = {
+                         position : coordinate,
+                         map : map,
+                         title: "Você está aqui!"
+                        };
+
+    var marker = new google.maps.Marker(configMarker);
+
+});
+});
+</script>
+
+<script>
+      let state = 1
+      document.documentElement.setAttribute('data-theme', 'light');
+
+      function mudar(){
+    if(state == 0){
+        document.documentElement.setAttribute('data-theme', 'light')
+        state = 1
+    }
+
+    else{
+        document.documentElement.setAttribute('data-theme', 'dark')
+        state = 0
+    }
+}
+
+</script>
+
+</body>
+</html>
